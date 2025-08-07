@@ -1,0 +1,13 @@
+python>=3.8,<3.12  # Python version (3.8-3.11 for broad compatibility)
+spacy>=3.7.0       # NLP library for query parsing
+PyQt5>=5.15.0      # Cross-platform GUI framework
+whoosh>=2.7.0      # File indexing and search
+pyyaml>=6.0.0      # Configuration file parsing (config.yaml)
+
+transformers>=4.35.0  # Hugging Face Transformers for advanced NLP (optional)
+torch>=2.0.0         # PyTorch for transformer models (optional)
+
+python-magic>=0.4.27  # File type detection (cross-platform)
+
+pyinstaller>=6.0.0  # Package app into executables for Windows, macOS, Linux
+pytest>=8.0.0       
