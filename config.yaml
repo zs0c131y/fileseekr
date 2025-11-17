@@ -1,0 +1,34 @@
+index:
+  index_path: data/index
+  excluded_dirs:
+  - .git
+  - .svn
+  - node_modules
+  - __pycache__
+  - .venv
+  - venv
+  - build
+  - dist
+  excluded_extensions:
+  - .pyc
+  - .pyo
+  - .so
+  - .dylib
+  - .dll
+  max_file_size_mb: 100
+  watch_for_changes: true
+search:
+  max_results: 100
+  enable_fuzzy: true
+  fuzzy_distance: 2
+  enable_semantic: false
+  snippet_size: 200
+ui:
+  theme: light
+  window_width: 1000
+  window_height: 700
+  show_hidden_files: false
+indexing:
+  watch_paths: []
+  auto_index_on_startup: true
+  index_interval_minutes: 60
