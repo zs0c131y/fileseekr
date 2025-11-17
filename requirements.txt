@@ -8,6 +8,7 @@ transformers>=4.35.0  # Hugging Face Transformers for advanced NLP (optional)
 torch>=2.0.0         # PyTorch for transformer models (optional)
 
 python-magic>=0.4.27  # File type detection (cross-platform)
+pynput>=1.7.6         # Global hotkey support (system-wide keyboard listener)
 
 pyinstaller>=6.0.0  # Package app into executables for Windows, macOS, Linux
 pytest>=8.0.0       

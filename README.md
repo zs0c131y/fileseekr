@@ -1,32 +1,45 @@
 # FileSeekr
 
-A smart search application for cross-device file searching. Making searching files a breeze, not another task to be completed.
+A smart search application for cross-device file searching. **Search any file from anywhere with Ctrl+Shift+Space** - just like Spotlight on macOS, but for all platforms!
 
-## Features
+## ✨ Key Features
 
-- **Smart Search**: Natural language query parsing using NLP
-- **Fast Indexing**: Powered by Whoosh for lightning-fast searches
-- **Cross-Platform**: Works on Windows, macOS, and Linux
-- **Modern GUI**: Intuitive PyQt5 interface
-- **Real-Time Updates**: Automatic file system watching and index updates
-- **Advanced Filters**: Search by file type, size, date, extension, and more
-- **Content Search**: Search inside text files
-- **Fuzzy Matching**: Find files even with typos
+- **🔥 Global Hotkey**: Press `Ctrl+Shift+Space` from anywhere to search
+- **🎯 System Tray Integration**: Runs silently in background, always ready
+- **🧠 Smart Search**: Natural language query parsing using NLP
+- **⚡ Lightning Fast**: Powered by Whoosh indexing engine
+- **🖥️ Cross-Platform**: Works on Windows, macOS, and Linux
+- **🎨 Beautiful Overlay**: Spotlight-style search interface
+- **📁 Real-Time Updates**: Automatic file system watching and index updates
+- **🔍 Advanced Filters**: Search by file type, size, date, extension, and more
+- **📝 Content Search**: Search inside text files
+- **🎯 Fuzzy Matching**: Find files even with typos
+- **🚀 Auto-Start**: Launches on system boot
 
-## Installation
+## 📦 Installation
 
-### Requirements
+### Quick Install (Recommended)
+
+**Windows**: Download and run `FileSeekr-Setup.exe`
+**macOS**: Download `FileSeekr.dmg`, drag to Applications
+**Linux**: Run `sudo ./installers/install_linux.sh`
+
+See [QUICK_START.md](QUICK_START.md) for detailed instructions.
+
+### Manual Installation (Developers)
+
+#### Requirements
 
 - Python 3.8-3.11
 - pip package manager
 
-### Install Dependencies
+#### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Install spaCy Language Model (Optional but Recommended)
+#### Install spaCy Language Model (Optional but Recommended)
 
 For enhanced NLP capabilities:
 
@@ -34,19 +47,41 @@ For enhanced NLP capabilities:
 python -m spacy download en_core_web_sm
 ```
 
-## Usage
+## 🚀 Usage
 
-### Running the Application
+### System Tray Mode (Recommended)
+
+Run FileSeekr in the background with global hotkey support:
+
+```bash
+python main_tray.py
+```
+
+- Press **Ctrl+Shift+Space** to search from anywhere
+- Check system tray for FileSeekr icon
+- Right-click tray icon for options
+
+### Traditional GUI Mode
+
+Run with a persistent window:
 
 ```bash
 python main.py
 ```
 
+Or:
+
+```bash
+python main_tray.py --no-tray
+```
+
 ### First-Time Setup
 
-1. **Index Directories**: Go to `File > Index Directories...` and add folders to index
-2. **Configure Settings**: Go to `File > Settings...` to customize behavior
-3. **Start Searching**: Use natural language queries or keywords
+1. **Launch FileSeekr** (appears in system tray)
+2. **Right-click** the tray icon → **Index Directories...**
+3. **Add folders** to index (Documents, Downloads, Projects, etc.)
+4. **Click** "Start Indexing"
+5. **Press Ctrl+Shift+Space** to search!
 
 ### Search Examples
 
@@ -62,11 +97,41 @@ python main.py
 
 ### Keyboard Shortcuts
 
+**Global (System-wide):**
+- `Ctrl+Shift+Space` - Open search overlay from anywhere
+
+**In Search Overlay:**
+- `Type` - Search instantly
+- `↑` / `↓` - Navigate results
+- `Enter` - Open selected file
+- `Esc` - Close overlay
+
+**In Main Window:**
 - `Ctrl+I` - Index directories
 - `Ctrl+R` - Reindex all
 - `Ctrl+L` - Clear results
 - `Ctrl+,` - Settings
 - `Ctrl+Q` - Quit
+
+### System Tray Menu
+
+Right-click the FileSeekr tray icon:
+- **Search** - Open search overlay
+- **Open Main Window** - Open full application
+- **Index Directories...** - Manage indexed folders
+- **Settings...** - Configure FileSeekr
+- **About** - Version and info
+- **Quit** - Exit FileSeekr
+
+### Auto-Start Management
+
+```bash
+# Enable auto-start on system boot
+python main_tray.py --enable-autostart
+
+# Disable auto-start
+python main_tray.py --disable-autostart
+```
 
 ## Configuration
 
@@ -128,24 +193,58 @@ fileseekr/
 └── requirements.txt            # Python dependencies
 ```
 
-## Building Executables
+## 🔨 Building Executables
 
-### Using PyInstaller
+### Quick Build
 
-Build standalone executables for distribution:
+Use the unified build script:
 
 ```bash
-# Install PyInstaller
-pip install pyinstaller
-
-# Build (creates dist/fileseekr/)
-pyinstaller build.spec
-
-# Or use the build script
+# Build system tray version (recommended)
 python build.py
+
+# Build traditional GUI version
+python build.py --mode=gui
+
+# Build both versions
+python build.py --mode=both
+
+# Build and show installer instructions
+python build.py --installer
 ```
 
 The executable will be created in the `dist/` directory.
+
+### Platform-Specific Installers
+
+**Windows Installer (NSIS):**
+```bash
+# First build the executable
+python build.py
+
+# Then create installer (requires NSIS)
+makensis installers/windows_installer.nsi
+```
+
+**macOS DMG:**
+```bash
+./installers/build_macos.sh
+```
+
+**Linux Installation:**
+```bash
+sudo ./installers/install_linux.sh
+```
+
+### Manual PyInstaller Build
+
+```bash
+# System tray mode
+pyinstaller --clean --onefile --windowed main_tray.py
+
+# GUI mode
+pyinstaller --clean --onefile --windowed main.py
+```
 
 ## Development
 
