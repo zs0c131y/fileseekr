@@ -1,38 +1,36 @@
 # FileSeekr
 
-A smart search application for cross-device file searching. Making searching files a breeze, not another task to be completed.
+A smart search application for cross-device file searching. **Search any file from anywhere with Ctrl+Shift+Space** - just like Spotlight on macOS, but for all platforms!
 
-## Features
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
+![Python](https://img.shields.io/badge/Python-3.8%2B-green)
 
-- **Smart Search**: Natural language query parsing using NLP
-- **Fast Indexing**: Powered by Whoosh for lightning-fast searches
-- **Cross-Platform**: Works on Windows, macOS, and Linux
-- **Modern GUI**: Intuitive PyQt5 interface
-- **Real-Time Updates**: Automatic file system watching and index updates
-- **Advanced Filters**: Search by file type, size, date, extension, and more
-- **Content Search**: Search inside text files
-- **Fuzzy Matching**: Find files even with typos
+---
 
-## Installation
+## 📥 Quick Download
 
-### Requirements
+### For End Users (No Python Required)
 
-- Python 3.8-3.11
-- pip package manager
+**🎯 Download pre-built binaries from [GitHub Releases](https://github.com/YOUR_USERNAME/fileseekr/releases/latest)**
 
-### Install Dependencies
+| Platform | Download | Size |
+|----------|----------|------|
+| **Windows** | [FileSeekr-Setup.exe](https://github.com/YOUR_USERNAME/fileseekr/releases/latest) | ~65MB |
+| **macOS** | [FileSeekr.dmg](https://github.com/YOUR_USERNAME/fileseekr/releases/latest) | ~50MB |
+| **Linux** | [FileSeekr-linux-x64.tar.gz](https://github.com/YOUR_USERNAME/fileseekr/releases/latest) | ~65MB |
 
+**Or install from source** (for developers):
 ```bash
+git clone https://github.com/YOUR_USERNAME/fileseekr.git
+cd fileseekr
 pip install -r requirements.txt
+python main_tray.py
 ```
 
-### Install spaCy Language Model (Optional but Recommended)
+See [QUICK_START.md](QUICK_START.md) for detailed installation instructions.
 
-For enhanced NLP capabilities:
-
-```bash
-python -m spacy download en_core_web_sm
-```
+---
 
 ## Usage
 
